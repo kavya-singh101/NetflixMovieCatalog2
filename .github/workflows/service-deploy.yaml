@@ -19,7 +19,6 @@ jobs:
 
       - name: SSH to EC2 instance
         run: |
-          rm /home/ubuntu/NetflixMovieCatalog/mykey.pem
           echo "$SSH_PRIVATE_KEY" > mykey.pem
           chmod 600 mykey.pem
           
