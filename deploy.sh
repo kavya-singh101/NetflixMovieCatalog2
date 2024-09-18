@@ -6,9 +6,11 @@ cd ./NetflixMovieCatalog
 
 source .venv/bin/activate
 
-python3 app.py
-
 cd ..
+
+sudo systemctl daemon-reload
+sudo systemctl enable simplepy.service
+sudo systemctl start simplepy.service
 
 sudo apt update
 
@@ -19,4 +21,5 @@ sudo systemctl reload nginx
 sudo systemctl start nginx
 
 sudo apt update
+
 # TODO your deploy script implementation...
