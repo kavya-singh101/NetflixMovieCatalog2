@@ -8,9 +8,8 @@ source .venv/bin/activate
 
 cd ..
 
-sudo systemctl daemon-reload
-sudo systemctl enable simplepy.service
-sudo systemctl start simplepy.service
+sudo systemctl stop simplepy.service
+
 
 sudo apt update
 
