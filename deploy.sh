@@ -6,7 +6,11 @@ cd ./NetflixMovieCatalog
 
 source .venv/bin/activate
 
+cd ..
+
 sudo apt update
+
+sudo systemctl restart nginx
 
 sudo systemctl reload nginx
 
