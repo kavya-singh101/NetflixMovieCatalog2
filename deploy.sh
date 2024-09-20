@@ -11,14 +11,10 @@ docker rmi -f $(docker images -aq)
 # Step 3: Remove existing repository and its child directories
 REPO_PATH="home/ubuntu/NetflixMovieCatalog2"  # Replace with the actual path to your repo
 echo "Removing existing repository at $REPO_PATH..."
-rm -rf "$REPO_PATH"
-
-# Step 4: Clone the new repository from GitHub
-echo "Cloning the new repository from GitHub..."
-git clone https://github.com/kavya-singh101/NetflixMovieCatalog2.git 
 
 # Step 5: Enter the newly cloned repository
 cd "$REPO_PATH" || exit
+git pull https://github.com/kavya-singh101/NetflixMovieCatalog2.git
 echo "Entered the repository directory: $(pwd)"
 
 # Step 6: Build the Docker image using the Dockerfile
