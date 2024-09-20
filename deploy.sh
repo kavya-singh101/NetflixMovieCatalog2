@@ -10,7 +10,7 @@ docker rmi -f $(docker images -aq)
 
 # Step 3: Remove existing repository and its child directories
 REPO_PATH="home/ubuntu/NetflixMovieCatalog2"  # Replace with the actual path to your repo
-echo "Removing existing repository at $REPO_PATH..."
+# echo "Removing existing repository at $REPO_PATH..."
 
 # Step 5: Enter the newly cloned repository
 cd "$REPO_PATH" || exit
