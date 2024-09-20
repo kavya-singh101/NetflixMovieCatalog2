@@ -2,11 +2,11 @@
 
 # Step 1: Delete all Docker containers forcefully
 echo "Stopping and removing all Docker containers..."
-sudo docker rm -f $(docker ps -aq)
+sudo docker rm -f $(sudo docker ps -aq)
 
 # Step 2: Delete all Docker images
 echo "Removing all Docker images..."
-sudo docker rmi -f $(docker images -aq)
+sudo docker rmi -f $(sudo docker images -aq)
 
 # Step 3: Remove existing repository and its child directories
 REPO_PATH="home/ubuntu/NetflixMovieCatalog2"  # Replace with the actual path to your repo
