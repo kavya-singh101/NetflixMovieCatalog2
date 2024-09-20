@@ -15,7 +15,7 @@ rm -rf "$REPO_PATH"
 
 # Step 4: Clone the new repository from GitHub
 echo "Cloning the new repository from GitHub..."
-git clone https://github.com/kavya-singh101/NetflixMovieCatalog2.git "$REPO_PATH"
+git clone https://github.com/kavya-singh101/NetflixMovieCatalog2.git 
 
 # Step 5: Enter the newly cloned repository
 cd "$REPO_PATH" || exit
