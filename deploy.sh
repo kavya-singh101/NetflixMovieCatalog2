@@ -1,23 +1,32 @@
 #!/bin/bash
 
-sudo apt update
+# Step 1: Delete all Docker containers forcefully
+echo "Stopping and removing all Docker containers..."
+docker rm -f $(docker ps -aq)
 
-cd ./NetflixMovieCatalog
+# Step 2: Delete all Docker images
+echo "Removing all Docker images..."
+docker rmi -f $(docker images -aq)
 
-source .venv/bin/activate
+# Step 3: Remove existing repository and its child directories
+REPO_PATH="/path/to/your/repository"  # Replace with the actual path to your repo
+echo "Removing existing repository at $REPO_PATH..."
+rm -rf "$REPO_PATH"
 
-cd ..
+# Step 4: Clone the new repository from GitHub
+echo "Cloning the new repository from GitHub..."
+git clone https://github.com/kavya-singh101/NetflixMovieCatalog2.git "$REPO_PATH"
 
-sudo systemctl stop simplepy.service
+# Step 5: Enter the newly cloned repository
+cd "$REPO_PATH" || exit
+echo "Entered the repository directory: $(pwd)"
 
-sudo systemctl enable simplepy.service
+# Step 6: Build the Docker image using the Dockerfile
+echo "Building Docker image from the Dockerfile..."
+docker build -t netflix_movie_catalog .
 
-sudo systemctl start simplepy.service
+# Step 7: Run a container from the built image
+echo "Running the Docker container..."
+docker run -d -p 80:8080 --name movie_catalog netflix_movie_catalog
 
-sudo apt update
-
-sudo systemctl start nginx
-
-sudo apt update
-
-# TODO your deploy script implementation...
+echo "Process completed successfully!"
