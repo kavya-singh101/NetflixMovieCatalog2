@@ -9,7 +9,7 @@ echo "Removing all Docker images..."
 docker rmi -f $(docker images -aq)
 
 # Step 3: Remove existing repository and its child directories
-REPO_PATH="/NetflixMovieCatalog2"  # Replace with the actual path to your repo
+REPO_PATH="home/ubuntu/NetflixMovieCatalog2"  # Replace with the actual path to your repo
 echo "Removing existing repository at $REPO_PATH..."
 rm -rf "$REPO_PATH"
 
